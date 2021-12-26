@@ -61,6 +61,26 @@ public class MouseOperations
     }
     static void Main(string[] args) 
     {
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine("Close this window to stop the autoclicker!");
+        Thread.Sleep(2000);
+        Console.WriteLine("If all else fails you can use task manager to kill this application!");
+        Thread.Sleep(2000);
+        Console.WriteLine("Make sure you have task manager set to always on top to make your life easier!");
+        Thread.Sleep(2000);
+        Console.WriteLine("THIS IS YOUR LAST WARNING TO PREPARE ACCORDINGLY");
+        Thread.Sleep(2000);
+        Console.WriteLine("Press enter to enable the autoclicker.");
+        while (true)
+        {
+            var keypressed=Console.ReadKey(true);
+            if (keypressed.Key == ConsoleKey.Enter)
+            {
+                break;
+            }
+        }
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("Autoclicker enabled.");
         while (true)
         {
             Thread.Sleep(625);//sleep for a sword swing then play
