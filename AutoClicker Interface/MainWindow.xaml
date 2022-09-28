@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoClicker_Interface"
         mc:Ignorable="d"
-        Title="AutoClicker" Height="450" Width="800">
+        Title="AutoClicker" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Button x:Name="startStop_btn" Content="Start" HorizontalAlignment="Left" Margin="560,349,0,0" VerticalAlignment="Top" Height="38" Width="155" Click="startStop_btn_Click"/>
         <Label x:Name="timeDelay_lbl" Content="Time between clicks in milliseconds:" HorizontalAlignment="Left" Margin="62,48,0,0" VerticalAlignment="Top"/>
