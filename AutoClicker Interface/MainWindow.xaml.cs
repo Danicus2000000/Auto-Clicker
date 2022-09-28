@@ -25,38 +25,39 @@ namespace AutoClicker_Interface
         public MainWindow()
         {
             InitializeComponent();
-            /*
-            Thread.Sleep(625);//sleep for a sword swing then play
-            MouseEvent(MouseEventFlags.LeftDown);
-            MouseEvent(MouseEventFlags.LeftUp);
-             */
         }
 
         private void startStop_btn_Click(object sender, RoutedEventArgs e)
         {
-            if (startStop_btn.Content.ToString() == "Start") 
+            if (int.TryParse(timeDelay_txt.Text, out int i))
             {
-                startStop_btn.Content = "Stop";
-                clickEventInitaliser= new Thread(() => runClickEvent(Convert.ToInt32(timeDelay_txt.Text)));
-                clickEventInitaliser.Start();
+                if (startStop_btn.Content.ToString() == "Start")
+                {
+                    startStop_btn.Content = "Stop";
+                    clickEventInitaliser = new Thread(() => runClickEvent(Convert.ToInt32(timeDelay_txt.Text)));
+                    clickEventInitaliser.Start();
+                }
+                else if (startStop_btn.Content.ToString() == "Stop")
+                {
+                    startStop_btn.Content = "Start";
+                }
             }
-            else if(startStop_btn.Content.ToString() == "Stop") 
+            else 
             {
-                startStop_btn.Content = "Start";
+                MessageBox.Show("The delay entered is not a number.", "Invalid Value!");
             }
         }
-        
-        private void runClickEvent(int timeDelay) 
+
+        private void runClickEvent(int timeDelay)
         {
-            this.Dispatcher.Invoke(() =>
+            string startStopState = "Stop";
+            while (startStopState == "Stop")
             {
-                while (startStop_btn.Content.ToString() == "Stop")
-                {
-                    Thread.Sleep(timeDelay);
-                    MouseEvents.MouseEvent(MouseEvents.MouseEventFlags.LeftDown);
-                    MouseEvents.MouseEvent(MouseEvents.MouseEventFlags.LeftUp);
-                }
-            });
+                this.Dispatcher.Invoke(() => { startStopState = startStop_btn.Content.ToString(); });
+                Thread.Sleep(timeDelay);
+                MouseEvents.MouseEvent(MouseEvents.MouseEventFlags.LeftDown);
+                MouseEvents.MouseEvent(MouseEvents.MouseEventFlags.LeftUp);
+            }
         }
     }
 }
