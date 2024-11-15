@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="AutoClicker" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
-        <Button x:Name="startStop_btn" Content="Start" HorizontalAlignment="Left" Margin="560,349,0,0" VerticalAlignment="Top" Height="38" Width="155" Click="startStop_btn_Click"/>
+        <Button x:Name="startStop_btn" Content="Start" HorizontalAlignment="Left" Margin="560,349,0,0" VerticalAlignment="Top" Height="38" Width="155" Click="StartStopBtnClick"/>
         <Label x:Name="timeDelay_lbl" Content="Time between clicks in milliseconds:" HorizontalAlignment="Left" Margin="62,48,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="timeDelay_txt" HorizontalAlignment="Left" Margin="266,52,0,0" TextWrapping="Wrap" Text="625" VerticalAlignment="Top" Width="134" Height="22" PreviewTextInput="timeDelay_txt_PreviewTextInput"/>
+        <TextBox x:Name="timeDelay_txt" HorizontalAlignment="Left" Margin="266,52,0,0" TextWrapping="Wrap" Text="625" VerticalAlignment="Top" Width="134" Height="22" PreviewTextInput="TimeDelayTxtPreviewTextInput"/>
         <ComboBox x:Name="clickCount_cmb" HorizontalAlignment="Left" Margin="266,74,0,0" VerticalAlignment="Top" Width="134" SelectedIndex="0">
             <ComboBoxItem Content="Single Click"/>
             <ComboBoxItem Content="Double Click"/>

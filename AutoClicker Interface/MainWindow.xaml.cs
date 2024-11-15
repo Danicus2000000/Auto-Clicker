@@ -14,7 +14,7 @@ namespace AutoClicker_Interface
             InitializeComponent();
         }
 
-        private void startStop_btn_Click(object sender, RoutedEventArgs e)
+        private void StartStopBtnClick(object sender, RoutedEventArgs e)
         {
             if (startStop_btn.Content.ToString() == "Start")
             {
@@ -29,9 +29,9 @@ namespace AutoClicker_Interface
                         {
                             clicktime.Elapsed += ClickTimerSingle_tick;
                         }
-                        else 
+                        else
                         {
-                            clicktime.Elapsed += ClickTimerDouble_tick; 
+                            clicktime.Elapsed += ClickTimerDouble_tick;
                         }
                         clicktime.Start();
                     }
@@ -41,9 +41,10 @@ namespace AutoClicker_Interface
                     MessageBox.Show("To protect the system 500 miliseconds is the minimum delay between clicks. " + timeDelay_txt.Text + " millisecond(s) is too short!", "Time delay too short.", MessageBoxButton.OK);
                 }
             }
-            else 
+            else
             {
                 startStop_btn.Content = "Start";
+                clicktime ??= new System.Timers.Timer();
                 clicktime.Elapsed -= ClickTimerDouble_tick;
                 clicktime.Elapsed -= ClickTimerSingle_tick;
                 clicktime?.Stop();
@@ -64,11 +65,11 @@ namespace AutoClicker_Interface
             MouseEvents.MouseEvent(MouseEvents.MouseEventFlags.LeftUp);
         }
 
-        private void timeDelay_txt_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        private void TimeDelayTxtPreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             e.Handled = !IsTextAllowed(e.Text);
         }
-        private static readonly Regex _regex = new Regex("[^0-9.-]+"); //regex that matches disallowed text
+        private static readonly Regex _regex = new("[^0-9.-]+"); //regex that matches disallowed text
         private static bool IsTextAllowed(string text)
         {
             return !_regex.IsMatch(text);
