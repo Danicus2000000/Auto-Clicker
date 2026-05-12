@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AutoClicker Interface/AutoClicker Interface.csproj" />
+  <Project Path="AutoClicker/AutoClicker.csproj" />
+</Solution>
